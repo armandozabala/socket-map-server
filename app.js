@@ -7,6 +7,7 @@ const Puntos = require('./db/puntos');
 const PORT = process.env.PORT || 4000;
 
 const app = express();
+app.use(cors());
 
 
 
@@ -14,7 +15,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: "*",
+    origin: "https://pensive-shaw-f70d36.netlify.app/",
     cors:true,
     methods: ["GET", "POST"],
     credentials: true,
@@ -22,7 +23,6 @@ const io = socketIo(server, {
 });
 
 
-app.use(cors());
 
 
 io.on("connection",  async (socket) => {
