@@ -4,11 +4,11 @@ const cors = require("cors");
 const socketIo = require("socket.io");
 const mongoose = require('./db/mongo');
 const Puntos = require('./db/puntos');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-app.use(cors());
+
 
 const server = http.createServer(app);
 
@@ -21,7 +21,7 @@ const io = socketIo(server, {
 });
 
 
-
+app.use(cors());
 
 
 io.on("connection",  async (socket) => {
