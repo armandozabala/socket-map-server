@@ -16,7 +16,6 @@ const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
     origin: "https://pensive-shaw-f70d36.netlify.app/",
-    cors:true,
     methods: ["GET", "POST"],
     credentials: true,
   },
